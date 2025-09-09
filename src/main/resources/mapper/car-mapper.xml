@@ -3,7 +3,7 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
-<mapper namespace="com.green.backend_car.car.mapper">
+<mapper namespace="com.green.backend_car.car.mapper.CarMapper">
 	<resultMap id="carList" type="com.green.backend_car.car.dto.CarDTO">
         <id column="MODEL_NUM" property="modelNum" />
         <result column="MODEL_NAME" property="modelName" />
@@ -17,6 +17,16 @@
         FROM CAR_INFO
         ORDER BY MODEL_NUM DESC
     </select>
+
+    <!--차량 등록-->
+    <insert id="insertCar">
+        INSERT INTO CAR_INFO (MODEL_NAME
+                            , PRICE
+                            , MANUFACTURER)
+        VALUES (#{modelName}
+                , #{price}
+                , #{manufacturer})
+    </insert>
 </mapper>
 
 
