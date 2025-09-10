@@ -38,7 +38,7 @@
                 , C.MODEL_NAME
                 , C.PRICE
         FROM
-        SALES_INFO JOIN CAR_INFO
+        SALES_INFO S JOIN CAR_INFO C
         ON S.MODEL_NUM = C.MODEL_NUM
         ORDER BY
         S.SALE_NUM DESC
