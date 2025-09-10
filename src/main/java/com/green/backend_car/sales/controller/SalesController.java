@@ -20,7 +20,7 @@ public class SalesController {
   }
 
   //판매 등록 api
-  @PutMapping("")
+  @PostMapping("")
   public int insertSales(@RequestBody SalesDTO salesDTO){
     return salesService.insertSales(salesDTO);
   }

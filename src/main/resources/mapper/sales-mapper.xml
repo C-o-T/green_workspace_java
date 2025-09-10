@@ -15,17 +15,17 @@
         <result column="PRICE" property="price" />
     </resultMap>
 
-    <insert id="insertSale">
-        INSERT INTO SALES_INFO (BUYER_NAME,
-                                BUYER_CONTACT,
-                                COLOR,
-                                SALE_DATE,
-                                MODEL_NUM)
-        VALUES (#{buyerName},
-                #{buyerContact},
-                #{color},
-                #{saleDate},
-                #{modelNum})
+    <insert id="insertSales">
+        INSERT INTO SALES_INFO (BUYER_NAME
+            , BUYER_CONTACT
+            , COLOR
+            , SALE_DATE
+            , MODEL_NUM)
+        VALUES (#{buyerName}
+            , #{buyerContact}
+            , #{color}
+            , #{saleDate}
+            , #{modelNum})
     </insert>
 
     <select id="getSalesList" resultMap="salesList">
@@ -36,42 +36,12 @@
                 , S.SALE_DATE
                 , S.MODEL_NUM
                 , C.MODEL_NAME
-                , CI.PRICE
+                , C.PRICE
         FROM
-        SALES_INFO S JOIN CAR_INFO C
+        SALES_INFO JOIN CAR_INFO
         ON S.MODEL_NUM = C.MODEL_NUM
         ORDER BY
         S.SALE_NUM DESC
     </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
